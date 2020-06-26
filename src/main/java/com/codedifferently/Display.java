@@ -19,5 +19,9 @@ public class Display {
         String result = Double.toString(newResult);
         this.result=result;
     }
+
+    public void updateResult(String newResult){
+        this.result=newResult;
+    }
     
 }

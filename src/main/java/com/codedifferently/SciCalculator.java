@@ -38,7 +38,6 @@ public class SciCalculator extends Calculator
     public void switchDisplayMode(String modeChange){
         this.displayMode.switchMode(modeChange);
     }
-    
 
     public double getMem(){
         return this.memory.getMemVal();

@@ -23,6 +23,10 @@ public class Calculator {
         this.display.updateResult(result);
     }
 
+    public void updateDisplay(String result){
+        this.display.updateResult(result);
+    }
+
     public void add(double num1, double num2){
         double result = num1 + num2;
         this.display.updateResult(result);
