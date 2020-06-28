@@ -11,7 +11,7 @@ public class Calculator {
     }
 
     // Operations below
-    public String getDisplayResult(){
+    public double getDisplayResult(){
         return this.display.getResult();
     }
 
@@ -20,10 +20,6 @@ public class Calculator {
     }
 
     public void updateDisplay(double result){
-        this.display.updateResult(result);
-    }
-
-    public void updateDisplay(String result){
         this.display.updateResult(result);
     }
 

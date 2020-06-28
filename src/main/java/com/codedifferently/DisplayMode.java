@@ -23,10 +23,9 @@ public class DisplayMode {
     }
 
     public void switchMode(){
-        if(index>4)
-            index=0;
-        else
-            index++;
+        this.index++;
+        if(this.index>3)
+            this.index=0;
         this.mode=this.modeList[index];
     }
 

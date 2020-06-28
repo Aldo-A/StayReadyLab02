@@ -6,7 +6,7 @@ public class TrigUnitsTest {
     @Test
     public void trigTest(){
         //Given
-        String setMode = "Degrees";
+        String setMode = "degrees";
         //When
         TrigUnits units = new TrigUnits(); 
         String actualMode = units.getSetMode();
@@ -16,7 +16,7 @@ public class TrigUnitsTest {
     @Test
     public void switchUnitsTest(){
         //Given
-        String setMode = "Radians";
+        String setMode = "radians";
         //When
         TrigUnits units = new TrigUnits(); 
         units.switchUnitsMode();
@@ -27,7 +27,7 @@ public class TrigUnitsTest {
     @Test
     public void switchUnitsStringTest(){
         //Given
-        String setMode = "Radians";
+        String setMode = "radians";
         //When
         TrigUnits units = new TrigUnits(); 
         units.switchUnitsMode("Radians");

@@ -3,24 +3,19 @@ package com.codedifferently;
 Display will output the result
 */
 public class Display {
-    private String result;
+    private double result;
 
     // Display is displayed as a String
     public Display(){
-        this.result = "0.0";
+        this.result = 0.0;
     }
 
     // Operations below
-    public String getResult(){
+    public double getResult(){
         return this.result;
     }
 
     public void updateResult(double newResult){
-        String result = Double.toString(newResult);
-        this.result=result;
-    }
-
-    public void updateResult(String newResult){
         this.result=newResult;
     }
     

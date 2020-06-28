@@ -8,18 +8,18 @@ public class SciCalculatorTest
     @Test
     public void sciCalcTest(){
         //Given
-        String resultDis = "0.0";
+        double resultDis = 0.0;
         double resultMem = 0.0;
         String displayMode="decimal";
         String setMode = "Degrees";
         //When
         SciCalculator testC = new SciCalculator();
-        String actualDis = testC.getDisplayResult();
+        double actualDis = testC.getDisplayResult();
         double actualMem = testC.getMem();
         String actualDisplayMode = testC.getDisplayMode();
         String actualSetMode = testC.getTrigUnitsMode();
         //Then
-        Assert.assertEquals(resultDis, actualDis);
+        Assert.assertEquals(resultDis, actualDis,0.00001);
         Assert.assertEquals(resultMem, actualMem, 0.00001);
         Assert.assertEquals(displayMode, actualDisplayMode);
         Assert.assertEquals(setMode, actualSetMode);
@@ -108,20 +108,18 @@ public class SciCalculatorTest
         double num= Math.sin(10.0);
         double degree=Math.toDegrees(num);
         double radians=Math.toRadians(num);
-        String degreeS=Double.toString(degree);
-        String radiansS=Double.toString(radians);
 
         //When
         SciCalculator calc = new SciCalculator();
         calc.sine(10.0);
-        String actualDegree = calc.getDisplayResult();
+        double actualDegree = calc.getDisplayResult();
         calc.switchTrigUnits();
         calc.sine(10.0);
-        String actualRadians= calc.getDisplayResult();
+        double actualRadians= calc.getDisplayResult();
 
         //Then
-        Assert.assertEquals(degreeS, actualDegree);
-        Assert.assertEquals(radiansS, actualRadians);
+        Assert.assertEquals(degree, actualDegree,0.00001);
+        Assert.assertEquals(radians, actualRadians,0.00001);
     }
 
     @Test
@@ -130,20 +128,18 @@ public class SciCalculatorTest
         double num= Math.cos(10.0);
         double degree=Math.toDegrees(num);
         double radians=Math.toRadians(num);
-        String degreeS=Double.toString(degree);
-        String radiansS=Double.toString(radians);
 
         //When
         SciCalculator calc = new SciCalculator();
         calc.cos(10.0);
-        String actualDegree = calc.getDisplayResult();
+        double actualDegree = calc.getDisplayResult();
         calc.switchTrigUnits();
         calc.cos(10.0);
-        String actualRadians= calc.getDisplayResult();
+        double actualRadians= calc.getDisplayResult();
 
         //Then
-        Assert.assertEquals(degreeS, actualDegree);
-        Assert.assertEquals(radiansS, actualRadians);
+        Assert.assertEquals(degree, actualDegree,0.00001);
+        Assert.assertEquals(radians, actualRadians,0.00001);
     }
 
     @Test
@@ -152,20 +148,18 @@ public class SciCalculatorTest
         double num= Math.tan(10.0);
         double degree=Math.toDegrees(num);
         double radians=Math.toRadians(num);
-        String degreeS=Double.toString(degree);
-        String radiansS=Double.toString(radians);
 
         //When
         SciCalculator calc = new SciCalculator();
         calc.tan(10.0);
-        String actualDegree = calc.getDisplayResult();
+        double actualDegree = calc.getDisplayResult();
         calc.switchTrigUnits();
         calc.tan(10.0);
-        String actualRadians= calc.getDisplayResult();
+        double actualRadians= calc.getDisplayResult();
 
         //Then
-        Assert.assertEquals(degreeS, actualDegree);
-        Assert.assertEquals(radiansS, actualRadians);
+        Assert.assertEquals(degree, actualDegree,0.00001);
+        Assert.assertEquals(radians, actualRadians,0.00001);
     }
 
     @Test
@@ -174,20 +168,19 @@ public class SciCalculatorTest
         double num= Math.atan(10.0);
         double degree=Math.toDegrees(num);
         double radians=Math.toRadians(num);
-        String degreeS=Double.toString(degree);
-        String radiansS=Double.toString(radians);
+
 
         //When
         SciCalculator calc = new SciCalculator();
         calc.inverseTan(10.0);
-        String actualDegree = calc.getDisplayResult();
+        double actualDegree = calc.getDisplayResult();
         calc.switchTrigUnits();
         calc.inverseTan(10.0);
-        String actualRadians= calc.getDisplayResult();
+        double actualRadians= calc.getDisplayResult();
 
         //Then
-        Assert.assertEquals(degreeS, actualDegree);
-        Assert.assertEquals(radiansS, actualRadians);
+        Assert.assertEquals(degree, actualDegree,0.00001);
+        Assert.assertEquals(radians, actualRadians,0.00001);
     }
 
     @Test
@@ -196,20 +189,18 @@ public class SciCalculatorTest
         double num= Math.acos(10.0);
         double degree=Math.toDegrees(num);
         double radians=Math.toRadians(num);
-        String degreeS=Double.toString(degree);
-        String radiansS=Double.toString(radians);
 
         //When
         SciCalculator calc = new SciCalculator();
         calc.inverseCos(10.0);
-        String actualDegree = calc.getDisplayResult();
+        double actualDegree = calc.getDisplayResult();
         calc.switchTrigUnits();
         calc.inverseCos(10.0);
-        String actualRadians= calc.getDisplayResult();
+        double actualRadians= calc.getDisplayResult();
 
         //Then
-        Assert.assertEquals(degreeS, actualDegree);
-        Assert.assertEquals(radiansS, actualRadians);
+        Assert.assertEquals(degree, actualDegree,0.00001);
+        Assert.assertEquals(radians, actualRadians,0.00001);
     }
 
     @Test
@@ -218,20 +209,18 @@ public class SciCalculatorTest
         double num= Math.asin(10.0);
         double degree=Math.toDegrees(num);
         double radians=Math.toRadians(num);
-        String degreeS=Double.toString(degree);
-        String radiansS=Double.toString(radians);
 
         //When
         SciCalculator calc = new SciCalculator();
         calc.inverseSin(10.0);
-        String actualDegree = calc.getDisplayResult();
+        double actualDegree = calc.getDisplayResult();
         calc.switchTrigUnits();
         calc.inverseSin(10.0);
-        String actualRadians= calc.getDisplayResult();
+        double actualRadians= calc.getDisplayResult();
 
         //Then
-        Assert.assertEquals(degreeS, actualDegree);
-        Assert.assertEquals(radiansS, actualRadians);
+        Assert.assertEquals(degree, actualDegree,0.00001);
+        Assert.assertEquals(radians, actualRadians,0.00001);
     }
 
     @Test
@@ -239,25 +228,24 @@ public class SciCalculatorTest
         //Given
         double result=-24.23;
         result=Math.abs(result);
-        String solution= Double.toString(result);
         //When
         SciCalculator testC = new SciCalculator();
         testC.abs(-24.23);
-        String actual = testC.getDisplayResult();
+        double actual = testC.getDisplayResult();
         //Then
-        Assert.assertEquals(solution, actual);
+        Assert.assertEquals(result, actual,0.00001);
     }
 
     @Test
     public void factorialTest(){
         //Given
-        String result="720.0";
+        double result=720.0;
         //When
         SciCalculator testC = new SciCalculator();
         testC.factorial(6);
-        String actual = testC.getDisplayResult();
+        double actual = testC.getDisplayResult();
         //Then
-        Assert.assertEquals(result, actual);
+        Assert.assertEquals(result, actual,0.00001);
     }
 
 

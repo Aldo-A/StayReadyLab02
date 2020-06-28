@@ -53,7 +53,7 @@ public class SciCalculator extends Calculator
 
     public void sine(double num){
         double result= Math.sin(num);
-        if(trigUnits.getSetMode() == "Radians")
+        if(this.trigUnits.getSetMode() == "Radians")
             result = Math.toRadians(result);
         else
             result = Math.toDegrees(result);
@@ -62,7 +62,7 @@ public class SciCalculator extends Calculator
 
     public void tan(double num){
         double result = Math.tan(num);
-        if(trigUnits.getSetMode() == "Radians")
+        if(this.trigUnits.getSetMode() == "Radians")
             result = Math.toRadians(result);
         else
             result = Math.toDegrees(result);
@@ -71,7 +71,7 @@ public class SciCalculator extends Calculator
 
     public void cos(double num){
         double result = Math.cos(num);
-        if(trigUnits.getSetMode() == "Radians")
+        if(this.trigUnits.getSetMode() == "Radians")
             result = Math.toRadians(result);
         else
             result = Math.toDegrees(result);
@@ -80,7 +80,7 @@ public class SciCalculator extends Calculator
 
     public void inverseCos(double num){
         double result = Math.acos(num);
-        if(trigUnits.getSetMode() == "Radians")
+        if(this.trigUnits.getSetMode() == "Radians")
             result = Math.toRadians(result);
         else
             result = Math.toDegrees(result);
@@ -89,7 +89,7 @@ public class SciCalculator extends Calculator
 
     public void inverseSin(double num){
         double result = Math.asin(num);
-        if(trigUnits.getSetMode() == "Radians")
+        if(this.trigUnits.getSetMode() == "Radians")
             result = Math.toRadians(result);
         else
             result = Math.toDegrees(result);
@@ -98,7 +98,7 @@ public class SciCalculator extends Calculator
 
     public void inverseTan(double num){
         double result = Math.atan(num);
-        if(trigUnits.getSetMode() == "Radians")
+        if(this.trigUnits.getSetMode() == "Radians")
             result = Math.toRadians(result);
         else
             result = Math.toDegrees(result);

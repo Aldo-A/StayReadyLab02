@@ -8,7 +8,7 @@ public class TrigUnits {
     
     //The default mode will always be set to degrees unless changed to radians
     public TrigUnits(){
-        this.setMode = "Degrees";
+        this.setMode = "degrees";
     }
 
     // Operations below
@@ -16,14 +16,14 @@ public class TrigUnits {
         return this.setMode;
     }
     public void switchUnitsMode(){
-        if(setMode == "Degrees"){
-            setMode = "Radians";
+        if(this.setMode == "degrees"){
+            this.setMode = "radians";
         }
         else{
-            setMode = "Degrees";
+            this.setMode = "degrees";
         }
     }
     public void switchUnitsMode(String mode){
-        this.setMode = mode;
+        this.setMode = mode.toLowerCase();
     }
 }

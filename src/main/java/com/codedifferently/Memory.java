@@ -15,10 +15,10 @@ public class Memory {
         return this.memVal;
     }
     public void addToMem(double num){
-        memVal += num;
+        this.memVal += num;
     }
     public void resetMem(){
-        memVal = 0.0;
+        this.memVal = 0.0;
     }
 
 
