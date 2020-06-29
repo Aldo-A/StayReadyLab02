@@ -2,35 +2,85 @@ package com.codedifferently;
 
 import java.util.Scanner;
 
-import javax.lang.model.util.ElementScanner6;
-
-
 public class ScientificCalculatorDemo {
-    static String menuOptions[] = {"1)add", "2)subract", "3)multiply", "4)divide"
-        , "5)square root", "6)square", "7)exponent", "8)inverse", "9)invert"
-        , "10)generate a random number", "11)sine", "12)cosine", "13)tangent"
-        , "14)sine inverse", "15)cosine inverse", "16) tangent inverse", "17)factorial"
-        , "18)absolute value", "19)switch trig units", "20)switch display mode"
-        , "21)add to memory","22)pull memory", "23)clear memory", "24)clear screen"};
+
+    // Operations for users to choose
+    static String menuOptions[] = {"1) add", "2) subract", "3) multiply", "4) divide"
+        , "5) square root", "6) square", "7) exponent", "8) inverse", "9) invert"
+        , "10) generate a random number", "11) sine", "12) cosine", "13) tangent"
+        , "14) sine inverse", "15) cosine inverse", "16) tangent inverse", "17) factorial"
+        , "18) absolute value", "19) switch trig units", "20) switch display mode"
+        , "21) add to memory","22) pull memory", "23) clear memory", "24) clear screen", "25) Quit"};
+
+    // Printing the operations menu
+    static void printMenu(){
+        System.out.println("------- Menu -------");
+        for(int i = 0; i < menuOptions.length; i++){
+			if(i % 5 != 0) {
+                System.out.print(menuOptions[i] + "  ");
+			}
+			else {
+				System.out.print(menuOptions[i] + "\n");
+			}
+        }
+        System.out.println();
+        System.out.print("Please select an operation: ");
+        
+    }
+
+    // Checks if input was empty or not, return boolean
+    static boolean inputCheck(String input){
+        if(!(input.isBlank()))
+            return true;
+        else
+            return false;
+    }
+
+    // ONLY OUTPUT/RESULT WILL BE CHANGED, accuracy will VARY
+    // Returns result in desired mode
+    static void modeCheck(double result,String currentMode){
+        if(currentMode.equalsIgnoreCase("binary")){
+            int convertedDouble=(int)(result);
+            String binaryConversion=Integer.toBinaryString(convertedDouble);
+            //Long doubleConverted=Double.doubleToRawLongBits(result);
+            //String binaryConversion=Long.toBinaryString(doubleConverted);
+            System.out.printf("Result in Binary: %s\n",binaryConversion);
+
+        }
+        else if(currentMode.equalsIgnoreCase("octal")){
+            System.out.println("OCTAL MODE");
+            int convertedDouble = (int)(result);
+            String output= Integer.toOctalString(convertedDouble);
+            System.out.printf("Result in Octal: %s\n",output);
+        }
+        else if(currentMode.equalsIgnoreCase("hexadecimal")){
+            System.out.println("HEX MODE");
+            //String output= Double.toHexString(result);
+            int output=(int)(result);
+            String out=Integer.toHexString(output);
+            System.out.printf("Result in Hex: %s\n",out);
+
+        }
+    }
+
+    // Scientific Calculator Demo
     public static void main(String[] args) {
+        // Creating Scanner to keep track of user choice
         int userChoice = 0;
         Scanner scan = new Scanner(System.in);
+        
+        //Calculator created and starting interactions
         SciCalculator calculator = new SciCalculator();
 
         System.out.print("Enter value for calculator: ");
         double input = scan.nextDouble();
         calculator.updateDisplay(input);
         System.out.printf("Calculator Display: %s\n",calculator.getDisplayResult());
-
         printMenu();
         userChoice = scan.nextInt();
 
-        while(userChoice < 1 || userChoice > 23){
-            System.out.print("Enter a valid option\n Enter option: ");
-            userChoice = scan.nextInt();
-        }
-
-        while(userChoice >=1 && userChoice <= 23){
+        //Check for valid option and perform operation
+        while((userChoice >=1 && userChoice <= 24) || userChoice!=25){
             double currentValue=calculator.getDisplayResult();
             
             if(userChoice==1){
@@ -226,6 +276,14 @@ public class ScientificCalculatorDemo {
                     calculator.switchTrigUnits();
                 else
                     calculator.switchTrigUnits(option);
+                if(calculator.getTrigUnitsMode()=="radians"){
+                    double convert=Math.toDegrees(calculator.getDisplayResult());
+                    calculator.updateDisplay(convert);
+                }
+                else{
+                    double convert=Math.toRadians(calculator.getDisplayResult());
+                    calculator.updateDisplay(convert);
+                }
     
             }
             else if(userChoice==20){
@@ -255,55 +313,16 @@ public class ScientificCalculatorDemo {
             else if(userChoice==24){
                 calculator.clear();
             }
+            // Continue asking user untill they quit
+            System.out.println();
             modeCheck(calculator.getDisplayResult(),calculator.getDisplayMode());
             System.out.printf("Calculator Display: %s\n",calculator.getDisplayResult());
             printMenu();
             userChoice = scan.nextInt();
         }
+        System.out.println("Calculator Closed");
 
 
         
     }
-    static void printMenu(){
-        System.out.println("Please select an operation");
-        for(int i=0;i<menuOptions.length;i++){
-            System.out.println(menuOptions[i]);
-        }
-        
-    }
-
-    static boolean inputCheck(String input){
-        if(!(input.isBlank()))
-            return true;
-        else
-            return false;
-    }
-
-    // ONLY OUTPUT/RESULT WILL BE CHANGED, accuracy will VARY
-    static void modeCheck(double result,String currentMode){
-        if(currentMode.equalsIgnoreCase("binary")){
-            System.out.println("BINARY MODE");
-            int convertedDouble=(int)(result);
-            String binaryConversion=Integer.toBinaryString(convertedDouble);
-            //Long doubleConverted=Double.doubleToRawLongBits(result);
-            //String binaryConversion=Long.toBinaryString(doubleConverted);
-            System.out.printf("Result in binary: %s\n",binaryConversion);
-
-        }
-        else if(currentMode.equalsIgnoreCase("octal")){
-            System.out.println("OCTAL MODE");
-            int convertedDouble = (int)(result);
-            String output= Integer.toOctalString(convertedDouble);
-            System.out.printf("Result in octal: %s\n",output);
-        }
-        else if(currentMode.equalsIgnoreCase("hexadecimal")){
-            System.out.println("HEX MODE");
-            //String output= Double.toHexString(result);
-            int output=(int)(result);
-            String out=Integer.toHexString(output);
-            System.out.printf("Result in hex: %s\n",out);
-
-        }
-    }
-    
 }

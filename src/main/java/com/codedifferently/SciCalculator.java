@@ -52,56 +52,38 @@ public class SciCalculator extends Calculator
     }
 
     public void sine(double num){
-        double result= Math.sin(num);
-        if(this.trigUnits.getSetMode() == "Radians")
-            result = Math.toRadians(result);
-        else
-            result = Math.toDegrees(result);
+        double radians = Math.toRadians(num);
+        double result = Math.sin(radians);
         super.updateDisplay(result);
     }
 
     public void tan(double num){
-        double result = Math.tan(num);
-        if(this.trigUnits.getSetMode() == "Radians")
-            result = Math.toRadians(result);
-        else
-            result = Math.toDegrees(result);
+        double radians = Math.toRadians(num);
+        double result = Math.tan(radians);
         super.updateDisplay(result);
     }
 
     public void cos(double num){
-        double result = Math.cos(num);
-        if(this.trigUnits.getSetMode() == "Radians")
-            result = Math.toRadians(result);
-        else
-            result = Math.toDegrees(result);
+        double radians = Math.toRadians(num);
+        double result = Math.cos(radians);
         super.updateDisplay(result);
     }
 
     public void inverseCos(double num){
-        double result = Math.acos(num);
-        if(this.trigUnits.getSetMode() == "Radians")
-            result = Math.toRadians(result);
-        else
-            result = Math.toDegrees(result);
+        double radians = Math.toRadians(num);
+        double result = Math.acos(radians);
         super.updateDisplay(result);
     }
 
     public void inverseSin(double num){
-        double result = Math.asin(num);
-        if(this.trigUnits.getSetMode() == "Radians")
-            result = Math.toRadians(result);
-        else
-            result = Math.toDegrees(result);
+        double radians = Math.toRadians(num);
+        double result = Math.asin(radians);
         super.updateDisplay(result);
     }
 
     public void inverseTan(double num){
-        double result = Math.atan(num);
-        if(this.trigUnits.getSetMode() == "Radians")
-            result = Math.toRadians(result);
-        else
-            result = Math.toDegrees(result);
+        double radians = Math.toRadians(num);
+        double result = Math.atan(radians);
         super.updateDisplay(result);
     }
 
